@@ -20,9 +20,8 @@ class NewTravelActivity : AppCompatActivity() {
         spinner.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, getCountries())
 
         var button = findViewById<Button>(R.id.button_create)
-        button.setOnClickListener { view ->
+        button.setOnClickListener {
             //get country value
-            var spinner = findViewById<Spinner>(R.id.country_list)
             var travelCountry = spinner.selectedItem.toString()
 
             var city = findViewById<EditText>(R.id.edit_city_name)

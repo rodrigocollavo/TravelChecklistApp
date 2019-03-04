@@ -22,11 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         title = getString(R.string.app_name)
 
-        fab.setOnClickListener { _ ->
+        fab.setOnClickListener {
             intent = Intent(this, NewTravelActivity::class.java)
             this.startActivity(intent)
         }
+    }
 
+    override fun onResume() {
+        super.onResume()
         loadTravels()
     }
 
@@ -38,10 +41,10 @@ class MainActivity : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.travel_list)
         listView.adapter = TravelAdapter(this, travelList)
 
-        listView.setOnItemClickListener({ adapterView, view, i, l ->
+        listView.setOnItemClickListener { _, _, i, _ ->
             var intent = Intent(this, ChecklistActivity::class.java)
             intent.putExtra("travel_id", travelList[i].TravelID)
             startActivity(intent)
-        })
+        }
     }
 }
