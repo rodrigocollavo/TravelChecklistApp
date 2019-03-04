@@ -27,10 +27,10 @@ class ChecklistActivity : AppCompatActivity() {
         setContentView(R.layout.activity_checklist)
 
         var newItemInput = findViewById<TextInputEditText>(R.id.input_new_item)
-        newItemInput.setOnEditorActionListener { textView, i, keyEvent ->
+        newItemInput.setOnEditorActionListener { _, _, _ ->
             var text = newItemInput.text?.toString()
             if (!text?.isNullOrEmpty()!!) {
-                createItem(text!!)
+                createItem(text)
                 loadItems()
                 newItemInput.text?.clear()
             }
